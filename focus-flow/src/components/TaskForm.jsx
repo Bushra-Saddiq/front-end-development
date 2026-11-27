@@ -4,43 +4,27 @@ export default function TaskForm({ onAddTask }) {
   const [name, setName] = useState('');
   const [estimate, setEstimate] = useState(2);
 
-  const handleSubmit = (event) => {
+  function handleSubmit(event) {
     event.preventDefault();
-    const trimmedName = name.trim();
-    if (!trimmedName) {
-      return;
-    }
-    // Keep the estimate sensible: between 1 and 8 sessions.
+    if (!name.trim()) return;
+    // Keep the estimate between 1 and 8 sessions.
     const sessions = Math.min(8, Math.max(1, Number(estimate) || 1));
-    onAddTask(trimmedName, sessions);
+    onAddTask(name.trim(), sessions);
     setName('');
     setEstimate(2);
-  };
+  }
 
   return (
     <form className="task-form" onSubmit={handleSubmit}>
-      <label className="field">
-        <span>Task name</span>
-        <input
-          type="text"
-          value={name}
-          onChange={(event) => setName(event.target.value)}
-          placeholder="e.g. Practice React hooks"
-        />
+      <label>
+        Task name
+        <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="e.g. Practice React hooks" />
       </label>
-      <label className="field field-small">
-        <span>Sessions</span>
-        <input
-          type="number"
-          min="1"
-          max="8"
-          value={estimate}
-          onChange={(event) => setEstimate(event.target.value)}
-        />
+      <label>
+        Sessions
+        <input type="number" min="1" max="8" value={estimate} onChange={(e) => setEstimate(e.target.value)} />
       </label>
-      <button className="btn btn-primary" type="submit">
-        Add task
-      </button>
+      <button className="btn btn-primary" type="submit">Add task</button>
     </form>
   );
 }
