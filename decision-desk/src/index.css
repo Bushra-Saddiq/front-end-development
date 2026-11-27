@@ -1,0 +1,336 @@
+/* ---------------------------------------------------------------
+   DecisionDesk styles
+   Design tokens (colours come from Bushra's brand system):
+   Cloud page background, Lavender Mist panels, Lilac Gray borders,
+   Graphite text, Terracotta accent.
+   --------------------------------------------------------------- */
+:root {
+  --cloud: #f4f2ec;
+  --lavender: #e4e1ec;
+  --lilac: #b9b3c7;
+  --graphite: #33323a;
+  --white: #ffffff;
+  --accent: #b25b3e;
+  --accent-dark: #9a4a30;
+  --danger: #a33b3b;
+  --radius: 14px;
+}
+
+/* ---------- Base ---------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--cloud);
+  color: var(--graphite);
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+h1,
+h2 {
+  font-family: 'Fraunces', Georgia, serif;
+  margin: 0;
+}
+
+h2 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+p {
+  margin: 0;
+}
+
+/* ---------- Layout ---------- */
+.page {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.header {
+  text-align: center;
+  padding: 1rem 0 0.5rem;
+}
+
+.header h1 {
+  font-size: 2.25rem;
+}
+
+.tagline {
+  margin-top: 0.5rem;
+  color: var(--graphite);
+  opacity: 0.8;
+}
+
+.card {
+  background-color: var(--white);
+  border: 1px solid var(--lilac);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+}
+
+.footer {
+  text-align: center;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+/* ---------- Forms ---------- */
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+input[type='text'],
+select {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--lilac);
+  border-radius: 8px;
+  font: inherit;
+  color: var(--graphite);
+  background-color: var(--white);
+}
+
+input[type='text']:focus,
+select:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.option-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: flex-end;
+  margin-bottom: 1rem;
+}
+
+.option-form .field {
+  flex: 1;
+  min-width: 160px;
+}
+
+.option-form .field:first-child {
+  flex: 2;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  font: inherit;
+  font-weight: 600;
+  padding: 0.55rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--lilac);
+  background-color: var(--white);
+  color: var(--graphite);
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: var(--lavender);
+}
+
+.btn-primary {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-dark);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-big {
+  margin-top: 1rem;
+  padding: 0.7rem 1.5rem;
+  font-size: 1.05rem;
+}
+
+.btn-ghost {
+  background-color: transparent;
+}
+
+.btn-small {
+  padding: 0.3rem 0.7rem;
+  font-size: 0.85rem;
+}
+
+.btn-danger {
+  color: var(--danger);
+  border-color: var(--danger);
+}
+
+.btn-danger:hover {
+  background-color: #f6e8e8;
+}
+
+/* ---------- Option list ---------- */
+.option-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.option-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0.75rem;
+  background-color: var(--cloud);
+  border: 1px solid var(--lilac);
+  border-radius: 10px;
+}
+
+.option-name {
+  flex: 1;
+  font-weight: 500;
+}
+
+.weight-badge {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background-color: var(--lavender);
+}
+
+.empty-note {
+  color: var(--graphite);
+  opacity: 0.75;
+}
+
+/* ---------- Comparison table ---------- */
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.compare-table th,
+.compare-table td {
+  text-align: left;
+  padding: 0.5rem 0.25rem;
+  border-bottom: 1px solid var(--lavender);
+}
+
+.compare-table th {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  opacity: 0.7;
+}
+
+.bar-cell {
+  width: 35%;
+}
+
+.chance-bar {
+  height: 8px;
+  border-radius: 999px;
+  background-color: var(--lavender);
+  overflow: hidden;
+}
+
+.chance-fill {
+  height: 100%;
+  background-color: var(--accent);
+  border-radius: 999px;
+}
+
+/* ---------- Result card ---------- */
+.result-card {
+  background-color: var(--lavender);
+  border: 1px solid var(--lilac);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.result-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+}
+
+.result-card h2 {
+  font-size: 1.75rem;
+  margin: 0.5rem 0;
+}
+
+.result-card p {
+  max-width: 520px;
+  margin: 0 auto 1rem;
+}
+
+/* ---------- History ---------- */
+.history-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.history-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background-color: var(--cloud);
+  border: 1px solid var(--lilac);
+  border-radius: 10px;
+}
+
+.history-question {
+  font-weight: 600;
+}
+
+.history-choice {
+  margin-top: 0.15rem;
+}
+
+.history-date {
+  margin-top: 0.15rem;
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 520px) {
+  .header h1 {
+    font-size: 1.8rem;
+  }
+
+  .option-row {
+    flex-wrap: wrap;
+  }
+
+  .option-name {
+    flex-basis: 100%;
+  }
+
+  .bar-cell {
+    display: none;
+  }
+}
