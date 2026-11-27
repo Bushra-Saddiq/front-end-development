@@ -1,0 +1,9 @@
+# dependencies
+node_modules
+
+# production
+dist
+dist-ssr
+
+# local env files
+*.local
