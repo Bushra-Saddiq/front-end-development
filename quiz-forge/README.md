@@ -3,6 +3,20 @@
 Make your own multiple-choice quizzes, play them, and review your results
 over time. Great for exam revision — or for testing your friends.
 
+## What's in this folder
+
+The code to read is in `src/` — that is the project. The other files are setup that Vite and npm need:
+
+- `src/App.jsx` — the quizzes, the attempts, and which screen is showing
+- `src/components/` — `QuizList`, `QuizForm`, `QuestionForm`, `QuizPlayer`, `ResultsReview`, `StatsPanel`
+- `src/index.css` — all the styling
+- `package.json` — the libraries this project uses, and the commands to run it (`npm install`, `npm run dev`)
+- `README.md` — this file
+- `index.html` — the page that loads the app (Vite boilerplate)
+- `vite.config.js` — Vite's settings (boilerplate)
+- `package-lock.json` — written automatically by npm; a receipt of the exact library versions. Nobody writes it by hand.
+- `.gitignore` — tells Git which files not to upload (like `node_modules`)
+
 ## What it does
 
 - **Create quizzes** with a title, a category, and an optional countdown
@@ -43,10 +57,6 @@ npm run build
 - `useState` — quizzes, attempts, form inputs, and the current screen.
 - `useEffect` — saving to localStorage, and the countdown timer (with
   cleanup so the interval never keeps running).
-- `useMemo` — best score, average score, and attempt count per quiz.
-- `useRef` — holding the timer interval id so it can be cleared reliably.
-- `useReducer` — the quiz player state (current question, selected answer,
-  saved answers, time left), because those pieces change together.
 - `props` and component composition — the app is split into small
   components: list, forms, player, results, and statistics.
 - Controlled forms — every input is tied to state, with simple validation.

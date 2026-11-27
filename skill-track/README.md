@@ -4,6 +4,20 @@ A small React app for tracking the skills you are learning and watching
 your progress grow. Add a skill, set a goal for it, and nudge the progress
 bar forward as you learn.
 
+## What's in this folder
+
+The code to read is in `src/` — that is the project. The other files are setup that Vite and npm need:
+
+- `src/App.jsx` — the skills list, the filters, and the stats
+- `src/components/` — `SkillForm`, `SkillCard`, `SkillList`, `StatsBar`, `FilterBar`
+- `src/index.css` — all the styling
+- `package.json` — the libraries this project uses, and the commands to run it (`npm install`, `npm run dev`)
+- `README.md` — this file
+- `index.html` — the page that loads the app (Vite boilerplate)
+- `vite.config.js` — Vite's settings (boilerplate)
+- `package-lock.json` — written automatically by npm; a receipt of the exact library versions. Nobody writes it by hand.
+- `.gitignore` — tells Git which files not to upload (like `node_modules`)
+
 ## What it does
 
 - Add a skill with a name, a category (Frontend, Backend, Database,
@@ -12,7 +26,7 @@ bar forward as you learn.
 - A skill is marked completed automatically when its progress reaches
   100%. You can also mark it completed by hand, or un-mark it.
 - Filter skills by category and by status (All / In progress / Completed).
-- Sort the list by highest progress, lowest progress, or recently added.
+- Sort the list by highest progress or lowest progress.
 - Delete skills you no longer track.
 - See your overall numbers at the top: total skills, completed skills,
   and average progress.
@@ -49,15 +63,13 @@ npm run build
 - **useState** – the skills list, the form inputs, and the filters all
   live in state.
 - **useEffect** – saves the skills to localStorage every time they change.
-- **useMemo** – the filtered/sorted list and the statistics are only
-  recomputed when their inputs change.
 - **Controlled forms** – every form input is tied to state, so React
   always knows what was typed.
 - **Filtering and sorting** – array methods (`filter`, `sort`, `map`,
   `reduce`) shape the list the user sees.
 - **Reusable components** – one `SkillCard` renders every skill in the
   list.
-- **localStorage** – skills load with a lazy `useState` initializer and
+- **localStorage** – skills load from the browser when the app starts and
   save with `useEffect`, so nothing is lost on refresh.
 
 ## Tech

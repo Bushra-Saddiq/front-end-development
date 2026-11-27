@@ -5,6 +5,21 @@ actually spend. Set a limit for each category, add your income and expenses,
 and see at a glance what is left — with a friendly warning before a category
 runs out.
 
+## What's in this folder
+
+The code to read is in `src/` — that is the project. The other files are setup that Vite and npm need:
+
+- `src/App.jsx` — the budgets, the filters, and the add/edit flow
+- `src/context/BudgetContext.jsx` — the shared data (transactions and budgets) that every component uses
+- `src/components/` — `BudgetSettings`, `TransactionForm`, `TransactionList`, `CategoryCard`, `CategoryChart`, `Summary`
+- `src/index.css` — all the styling
+- `package.json` — the libraries this project uses, and the commands to run it (`npm install`, `npm run dev`)
+- `README.md` — this file
+- `index.html` — the page that loads the app (Vite boilerplate)
+- `vite.config.js` — Vite's settings (boilerplate)
+- `package-lock.json` — written automatically by npm; a receipt of the exact library versions. Nobody writes it by hand.
+- `.gitignore` — tells Git which files not to upload (like `node_modules`)
+
 ## Features
 
 - Set a monthly spending limit for each category: Food, Transport, Bills, Fun,
@@ -39,9 +54,7 @@ npm run build
 ## React concepts practiced
 
 - `useState` — form fields, filters, and the monthly budgets.
-- `useReducer` — all transaction changes (add, edit, delete) in one place.
 - `useEffect` — loading and saving data to localStorage.
-- `useMemo` — monthly totals, spending per category, and the filtered list.
 - Context API — a small `BudgetContext` shares the data and actions with
   every component, so nothing is passed down through long prop chains.
 - Controlled forms — every input is tied to state.

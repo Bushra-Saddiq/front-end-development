@@ -1,8 +1,23 @@
 # SpendWise – Daily Expense Splitter
 
 A small React app for friends or roommates who share expenses. Add the people,
-record what was spent, and the app works out who owes whom — including a simple
-"who pays whom" list so everyone can settle up with as few payments as possible.
+record what was spent, and the app works out each person's balance — who is
+owed money and who owes money.
+
+## What's in this folder
+
+The code to read is in `src/` — that is the project. The other files are setup that Vite and npm need:
+
+- `src/App.jsx` — the people and the expenses
+- `src/components/` — `ParticipantForm`, `ExpenseForm`, `ExpenseList`, `Balances`
+- `src/utils.js` — a tiny helper that formats amounts in rupees
+- `src/index.css` — all the styling
+- `package.json` — the libraries this project uses, and the commands to run it (`npm install`, `npm run dev`)
+- `README.md` — this file
+- `index.html` — the page that loads the app (Vite boilerplate)
+- `vite.config.js` — Vite's settings (boilerplate)
+- `package-lock.json` — written automatically by npm; a receipt of the exact library versions. Nobody writes it by hand.
+- `.gitignore` — tells Git which files not to upload (like `node_modules`)
 
 ## Features
 
@@ -14,8 +29,6 @@ record what was spent, and the app works out who owes whom — including a simpl
 - Total spending shown at the top
 - Per-person balances: how much each person paid, their share, and whether they
   are owed money or owe money
-- A settlement list that matches the biggest debtor with the biggest creditor
-  first, so settling up takes the fewest payments
 - Delete expenses
 - Everything is saved in the browser with localStorage, so a refresh keeps
   your data
@@ -41,8 +54,6 @@ npm run preview
 - `useState` — people, expenses, and form inputs
 - `useEffect` — saving to localStorage, and keeping the form in sync when the
   people list changes
-- `useMemo` — total spending, per-person balances, and the settlement list are
-  derived from the expenses, so they can never go out of sync
 - Props — the App holds the state and passes data and callbacks down to small
   components
 - Forms — controlled inputs, checkboxes, and a select for who paid
@@ -50,8 +61,8 @@ npm run preview
   balances
 - Conditional rendering — empty states, validation messages, and
   "is owed / owes / settled up"
-- localStorage — lazy `useState` initializer to load saved data, `useEffect`
-  to save it
+- localStorage — saved data loads when the app starts, `useEffect` saves it
+  when it changes
 
 ## Tech
 
