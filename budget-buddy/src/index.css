@@ -1,476 +1,92 @@
-/* ------------------------------------------------------------------ */
-/* Design tokens — Bushra's Cloud / Lavender brand colours            */
-/* ------------------------------------------------------------------ */
+/* BudgetBuddy colours: Cloud, Lavender and deep plum */
 :root {
-  --cloud: #f4f2ec; /* page background */
-  --lavender: #e4e1ec; /* soft fills, progress tracks */
-  --lilac: #b9b3c7; /* borders */
-  --graphite: #33323a; /* main text */
-  --white: #ffffff; /* cards */
-  --accent: #5c2e4a; /* deep plum — buttons and highlights */
-  --amber: #d9a441; /* 80% warning */
-  --terracotta: #b25b3e; /* over-budget warning */
-  --green: #2e7d4f; /* income */
-  --muted: #6e6c78; /* secondary text */
-  --radius: 14px;
+  --cloud: #f4f2ec;
+  --lavender: #e4e1ec;
+  --lilac: #b9b3c7;
+  --graphite: #33323a;
+  --white: #fff;
+  --accent: #5c2e4a;
+  --amber: #d9a441;
+  --terracotta: #b25b3e;
+  --green: #2e7d4f;
+  --muted: #6e6c78;
 }
-
-/* ------------------------------------------------------------------ */
-/* Base                                                                */
-/* ------------------------------------------------------------------ */
-* {
-  box-sizing: border-box;
-}
-
+* { box-sizing: border-box; }
 body {
   margin: 0;
   background: var(--cloud);
   color: var(--graphite);
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: 'Inter', system-ui, sans-serif;
   font-size: 16px;
   line-height: 1.5;
 }
-
-h1,
-h2,
-h3 {
-  font-family: 'Fraunces', Georgia, serif;
-  font-weight: 600;
-  line-height: 1.25;
-  margin: 0 0 12px;
-}
-
-h1 {
-  font-size: 2rem;
-}
-
-h2 {
-  font-size: 1.25rem;
-}
-
-h3 {
-  font-size: 1.05rem;
-}
-
-p {
-  margin: 0 0 12px;
-}
-
-.muted {
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
-/* ------------------------------------------------------------------ */
-/* Layout                                                              */
-/* ------------------------------------------------------------------ */
-.app {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 32px 16px 48px;
-}
-
-.header {
-  text-align: center;
-  margin-bottom: 24px;
-}
-
-.subtitle {
-  color: var(--muted);
-  max-width: 520px;
-  margin: 0 auto;
-}
-
-.card {
-  background: var(--white);
-  border: 1px solid var(--lilac);
-  border-radius: var(--radius);
-  padding: 20px;
-  margin-bottom: 16px;
-}
-
-.footer {
-  text-align: center;
-  margin-top: 8px;
-}
-
-/* ------------------------------------------------------------------ */
-/* Summary                                                             */
-/* ------------------------------------------------------------------ */
-.summary-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-}
-
-.stat {
-  background: var(--cloud);
-  border-radius: 10px;
-  padding: 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.stat-label {
-  font-size: 0.85rem;
-  color: var(--muted);
-}
-
-.stat-value {
-  font-family: 'Fraunces', Georgia, serif;
-  font-size: 1.25rem;
-  font-weight: 600;
-}
-
-.stat-value.income {
-  color: var(--green);
-}
-
-.stat-value.expense {
-  color: var(--terracotta);
-}
-
-/* ------------------------------------------------------------------ */
-/* Category cards and progress bars                                    */
-/* ------------------------------------------------------------------ */
-.category-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 12px;
-}
-
-.category-card {
-  border: 1px solid var(--lilac);
-  border-radius: 10px;
-  padding: 14px;
-}
-
-.category-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 8px;
-  margin-bottom: 8px;
-}
-
-.category-head h3 {
-  margin: 0;
-}
-
-.category-spent {
-  font-size: 0.9rem;
-  white-space: nowrap;
-}
-
-.progress {
-  background: var(--lavender);
-  border-radius: 999px;
-  height: 10px;
-  overflow: hidden;
-}
-
-.progress-fill {
-  background: var(--accent);
-  height: 100%;
-  border-radius: 999px;
-}
-
-.category-card.warning .progress-fill {
-  background: var(--amber);
-}
-
-.category-card.over .progress-fill {
-  background: var(--terracotta);
-}
-
-.category-status {
-  margin: 8px 0 0;
-  font-size: 0.9rem;
-}
-
-.category-card.warning .category-status {
-  color: #8a6414;
-  font-weight: 600;
-}
-
-.category-card.over .category-status {
-  color: var(--terracotta);
-  font-weight: 600;
-}
-
-/* ------------------------------------------------------------------ */
-/* Chart (plain CSS bars)                                              */
-/* ------------------------------------------------------------------ */
-.chart {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.chart-row {
-  display: grid;
-  grid-template-columns: 90px 1fr 90px;
-  align-items: center;
-  gap: 10px;
-}
-
-.chart-label {
-  font-size: 0.9rem;
-}
-
-.chart-track {
-  background: var(--lavender);
-  border-radius: 999px;
-  height: 12px;
-  overflow: hidden;
-}
-
-.chart-fill {
-  background: var(--accent);
-  height: 100%;
-  border-radius: 999px;
-}
-
-.chart-value {
-  font-size: 0.9rem;
-  text-align: right;
-}
-
-/* ------------------------------------------------------------------ */
-/* Forms                                                               */
-/* ------------------------------------------------------------------ */
-.form-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-bottom: 12px;
-}
-
-.field {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  font-size: 0.9rem;
-  font-weight: 500;
-}
-
-.field-wide {
-  grid-column: 1 / -1;
-}
-
-input,
-select {
-  font: inherit;
-  color: var(--graphite);
-  background: var(--white);
-  border: 1px solid var(--lilac);
-  border-radius: 8px;
-  padding: 9px 10px;
-  width: 100%;
-}
-
-input:focus,
-select:focus {
-  outline: 2px solid var(--accent);
-  outline-offset: 1px;
-}
-
-input:disabled {
-  background: var(--lavender);
-  color: var(--muted);
-}
-
-.form-actions {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.error {
-  color: var(--terracotta);
-  font-weight: 600;
-  font-size: 0.9rem;
-}
-
-.saved-note {
-  margin-left: 10px;
-  color: var(--green);
-  font-size: 0.9rem;
-  font-weight: 500;
-}
-
-/* ------------------------------------------------------------------ */
-/* Filters                                                             */
-/* ------------------------------------------------------------------ */
-.filters {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  margin-bottom: 16px;
-}
-
-/* ------------------------------------------------------------------ */
-/* Transactions list                                                   */
-/* ------------------------------------------------------------------ */
-.transaction-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.transaction-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 0;
-  border-top: 1px solid var(--lavender);
-}
-
-.transaction-item:first-child {
-  border-top: none;
-  padding-top: 0;
-}
-
-.transaction-item:last-child {
-  padding-bottom: 0;
-}
-
-.transaction-main {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  min-width: 0;
-}
-
-.transaction-description {
-  font-weight: 600;
-}
-
-.transaction-meta {
-  font-size: 0.85rem;
-  color: var(--muted);
-}
-
-.tag {
-  background: var(--lavender);
-  border-radius: 999px;
-  padding: 1px 8px;
-  font-size: 0.8rem;
-  white-space: nowrap;
-}
-
-.transaction-side {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-shrink: 0;
-}
-
-.transaction-amount {
-  font-weight: 600;
-  white-space: nowrap;
-}
-
-.transaction-amount.income {
-  color: var(--green);
-}
-
-.transaction-amount.expense {
-  color: var(--graphite);
-}
-
-.transaction-actions {
-  display: flex;
-  gap: 6px;
-}
-
-/* ------------------------------------------------------------------ */
-/* Buttons                                                             */
-/* ------------------------------------------------------------------ */
-.btn {
-  font: inherit;
-  font-weight: 600;
-  border-radius: 8px;
-  padding: 9px 16px;
-  cursor: pointer;
-  border: 1px solid transparent;
-}
-
-.btn-primary {
-  background: var(--accent);
-  color: var(--white);
-}
-
-.btn-secondary {
-  background: var(--white);
-  color: var(--graphite);
-  border-color: var(--lilac);
-}
-
-.btn-danger {
-  background: var(--white);
-  color: var(--terracotta);
-  border-color: var(--terracotta);
-}
-
-.btn-small {
-  padding: 5px 10px;
-  font-size: 0.85rem;
-}
-
-.btn:hover {
-  opacity: 0.9;
-}
-
-/* ------------------------------------------------------------------ */
-/* Settings                                                            */
-/* ------------------------------------------------------------------ */
-.settings-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-}
-
-.settings-head h2 {
-  margin: 0;
-}
-
-/* ------------------------------------------------------------------ */
-/* Small screens                                                       */
-/* ------------------------------------------------------------------ */
+h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; margin: 0 0 12px; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.25rem; }
+h3 { font-size: 1.05rem; }
+p { margin: 0 0 12px; }
+.muted { color: var(--muted); font-size: 0.9rem; }
+.app { max-width: 760px; margin: 0 auto; padding: 32px 16px 48px; }
+.header { text-align: center; margin-bottom: 24px; }
+.subtitle { color: var(--muted); }
+.card { background: var(--white); border: 1px solid var(--lilac); border-radius: 14px; padding: 20px; margin-bottom: 16px; }
+/* Summary: three boxes for income, expenses and savings */
+.summary-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.stat { background: var(--cloud); border-radius: 10px; padding: 14px; }
+.stat-label { display: block; font-size: 0.85rem; color: var(--muted); }
+.stat-value { font-family: 'Fraunces', Georgia, serif; font-size: 1.25rem; font-weight: 600; }
+.income { color: var(--green); }
+.expense { color: var(--terracotta); }
+/* Category cards and progress bars */
+.category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.category-card { border: 1px solid var(--lilac); border-radius: 10px; padding: 14px; }
+.category-head { display: flex; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
+.category-head h3 { margin: 0; }
+.progress { background: var(--lavender); border-radius: 999px; height: 10px; overflow: hidden; }
+.progress-fill { background: var(--accent); height: 100%; }
+.category-card.warning .progress-fill { background: var(--amber); }
+.category-card.over .progress-fill { background: var(--terracotta); }
+.category-status { margin: 8px 0 0; font-size: 0.9rem; }
+.category-card.warning .category-status { color: #8a6414; font-weight: 600; }
+.category-card.over .category-status { color: var(--terracotta); font-weight: 600; }
+/* Chart: plain CSS bars */
+.chart { display: flex; flex-direction: column; gap: 10px; }
+.chart-row { display: grid; grid-template-columns: 90px 1fr 90px; align-items: center; gap: 10px; }
+.chart-label { font-size: 0.9rem; }
+.chart-track { background: var(--lavender); border-radius: 999px; height: 12px; overflow: hidden; }
+.chart-fill { background: var(--accent); height: 100%; }
+.chart-value { font-size: 0.9rem; text-align: right; }
+/* Forms */
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+.field { display: flex; flex-direction: column; gap: 4px; font-size: 0.9rem; }
+.field-wide { grid-column: 1 / -1; }
+input, select { font: inherit; color: var(--graphite); border: 1px solid var(--lilac); border-radius: 8px; padding: 9px 10px; width: 100%; }
+.error { color: var(--terracotta); font-weight: 600; font-size: 0.9rem; }
+.saved-note { margin-left: 10px; color: var(--green); font-size: 0.9rem; }
+/* Filters */
+.filters { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px; }
+/* Transaction list */
+.transaction-list { list-style: none; margin: 0; padding: 0; }
+.transaction-item { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 0; border-top: 1px solid var(--lavender); }
+.transaction-main { display: flex; flex-direction: column; min-width: 0; }
+.transaction-description { font-weight: 600; }
+.transaction-meta { font-size: 0.85rem; color: var(--muted); }
+.tag { background: var(--lavender); border-radius: 999px; padding: 1px 8px; font-size: 0.8rem; }
+.transaction-side { display: flex; align-items: center; gap: 8px; }
+.transaction-amount { font-weight: 600; white-space: nowrap; }
+.transaction-amount.income { color: var(--green); }
+/* Buttons */
+.btn { font: inherit; font-weight: 600; border-radius: 8px; padding: 9px 16px; cursor: pointer; border: 1px solid transparent; }
+.btn-primary { background: var(--accent); color: var(--white); }
+.btn-secondary { background: var(--white); border-color: var(--lilac); }
+.btn-danger { background: var(--white); color: var(--terracotta); border-color: var(--terracotta); }
+.btn-small { padding: 5px 10px; font-size: 0.85rem; }
+/* Settings */
+.settings-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.settings-head h2 { margin: 0; }
+/* Small screens */
 @media (max-width: 560px) {
-  .app {
-    padding: 20px 12px 32px;
-  }
-
-  h1 {
-    font-size: 1.6rem;
-  }
-
-  .summary-grid,
-  .filters {
-    grid-template-columns: 1fr;
-  }
-
-  .form-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .chart-row {
-    grid-template-columns: 80px 1fr 80px;
-  }
-
-  .transaction-item {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .transaction-side {
-    width: 100%;
-    justify-content: space-between;
-  }
+  .summary-grid, .filters, .form-grid { grid-template-columns: 1fr; }
+  .chart-row { grid-template-columns: 70px 1fr 80px; }
+  .transaction-item { flex-direction: column; align-items: flex-start; }
 }
