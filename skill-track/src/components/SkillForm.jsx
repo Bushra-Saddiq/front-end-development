@@ -1,8 +1,7 @@
 import { useState } from 'react'
 
-// The form for adding a new skill.
-// It is a controlled form: every input value lives in state,
-// so React always knows what the user typed.
+// The form for adding a new skill. Every input value
+// lives in state, so React always knows what was typed.
 function SkillForm({ categories, onAddSkill }) {
   const [name, setName] = useState('')
   const [category, setCategory] = useState(categories[0])
@@ -18,11 +17,7 @@ function SkillForm({ categories, onAddSkill }) {
       return
     }
 
-    onAddSkill({
-      name: name.trim(),
-      category: category,
-      goal: goal.trim(),
-    })
+    onAddSkill({ name: name.trim(), category: category, goal: goal.trim() })
 
     // Clear the form so the next skill is quick to add.
     setName('')
@@ -38,43 +33,23 @@ function SkillForm({ categories, onAddSkill }) {
         <div className="form-row">
           <div className="form-field">
             <label htmlFor="skill-name">Skill name</label>
-            <input
-              id="skill-name"
-              type="text"
-              placeholder="e.g. React"
-              value={name}
-              onChange={(event) => setName(event.target.value)}
-            />
+            <input id="skill-name" type="text" placeholder="e.g. React" value={name} onChange={(event) => setName(event.target.value)} />
           </div>
           <div className="form-field">
             <label htmlFor="skill-category">Category</label>
-            <select
-              id="skill-category"
-              value={category}
-              onChange={(event) => setCategory(event.target.value)}
-            >
+            <select id="skill-category" value={category} onChange={(event) => setCategory(event.target.value)}>
               {categories.map((item) => (
-                <option key={item} value={item}>
-                  {item}
-                </option>
+                <option key={item} value={item}>{item}</option>
               ))}
             </select>
           </div>
         </div>
         <div className="form-field">
           <label htmlFor="skill-goal">Learning goal</label>
-          <input
-            id="skill-goal"
-            type="text"
-            placeholder="e.g. Build 3 small projects"
-            value={goal}
-            onChange={(event) => setGoal(event.target.value)}
-          />
+          <input id="skill-goal" type="text" placeholder="e.g. Build 3 small projects" value={goal} onChange={(event) => setGoal(event.target.value)} />
         </div>
         {error !== '' && <p className="form-error">{error}</p>}
-        <button className="btn btn-primary" type="submit">
-          Add skill
-        </button>
+        <button className="btn btn-primary" type="submit">Add skill</button>
       </form>
     </section>
   )

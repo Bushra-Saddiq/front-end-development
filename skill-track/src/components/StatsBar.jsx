@@ -1,5 +1,5 @@
 // The three numbers at the top: how many skills there are,
-// how many are finished, and the average progress across all of them.
+// how many are finished, and the average progress.
 function StatsBar({ total, completed, averageProgress }) {
   return (
     <div className="stats-bar">

@@ -1,382 +1,88 @@
-/* ============================================================
-   SkillTrack styles
-   Design tokens: soft cloud background, lavender surfaces,
-   lilac borders, graphite text, fresh sage accent.
-   ============================================================ */
+/* SkillTrack styles: cloud background, lavender surfaces,
+   lilac borders, graphite text, fresh sage accent. */
 
 :root {
-  --cloud: #f4f2ec; /* page background */
-  --lavender: #e4e1ec; /* soft surface tint */
-  --lilac: #b9b3c7; /* borders */
-  --graphite: #33323a; /* main text */
-  --white: #ffffff; /* cards */
-  --accent: #8aa392; /* fresh sage: buttons and highlights */
-  --accent-soft: #dfe8dd; /* pale sage for the progress track */
-  --muted: #6d6a78; /* quieter text for labels and hints */
+  --cloud: #f4f2ec;
+  --lavender: #e4e1ec;
+  --lilac: #b9b3c7;
+  --graphite: #33323a;
+  --white: #ffffff;
+  --accent: #8aa392;
+  --accent-soft: #dfe8dd;
+  --muted: #6d6a78;
 }
 
-/* ---------- Base ---------- */
-
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
-  background-color: var(--cloud);
+  background: var(--cloud);
   color: var(--graphite);
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 16px;
   line-height: 1.5;
 }
 
-h1,
-h2,
-h3 {
-  font-family: 'Fraunces', Georgia, serif;
-  font-weight: 600;
-  line-height: 1.2;
-  margin: 0;
-}
+h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; margin: 0; }
+button { font-family: inherit; font-size: 0.9rem; cursor: pointer; }
+input, select { font-family: inherit; font-size: 1rem; color: var(--graphite); }
 
-button {
-  font-family: inherit;
-  font-size: 0.9rem;
-  cursor: pointer;
-}
+.app { max-width: 760px; margin: 0 auto; padding: 32px 16px 64px; }
+.app-header { text-align: center; margin-bottom: 24px; }
+.app-header h1 { font-size: 2.25rem; margin-bottom: 8px; }
+.app-header p { margin: 0; color: var(--muted); }
 
-input,
-select {
-  font-family: inherit;
-  font-size: 1rem;
-  color: var(--graphite);
-}
+.card { background: var(--white); border: 1px solid var(--lilac); border-radius: 14px; padding: 20px; margin-bottom: 16px; }
+.section-title { font-size: 1.25rem; margin-bottom: 16px; }
 
-/* ---------- Layout ---------- */
+/* Stats */
+.stats-bar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px; }
+.stat { background: var(--white); border: 1px solid var(--lilac); border-radius: 14px; padding: 16px 12px; text-align: center; }
+.stat-value { display: block; font-family: 'Fraunces', Georgia, serif; font-size: 1.75rem; font-weight: 600; }
+.stat-label { font-size: 0.85rem; color: var(--muted); }
 
-.app {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 32px 16px 64px;
-}
+/* Form */
+.skill-form { display: flex; flex-direction: column; gap: 12px; }
+.form-row { display: flex; gap: 12px; flex-wrap: wrap; }
+.form-field { display: flex; flex-direction: column; gap: 4px; flex: 1; min-width: 160px; }
+.form-field label { font-size: 0.85rem; font-weight: 600; color: var(--muted); }
+.form-field input, .form-field select { padding: 10px 12px; border: 1px solid var(--lilac); border-radius: 10px; background: var(--white); }
+.form-error { margin: 0; font-size: 0.9rem; color: #9c3d2e; }
 
-.app-header {
-  text-align: center;
-  margin-bottom: 24px;
-}
+/* Buttons */
+.btn { padding: 10px 18px; border-radius: 10px; border: 1px solid var(--lilac); background: var(--white); color: var(--graphite); }
+.btn-primary { background: var(--accent); border-color: var(--accent); font-weight: 600; align-self: flex-start; }
+.btn-small { padding: 6px 12px; font-size: 0.85rem; }
+.btn-danger { color: #9c3d2e; }
 
-.app-header h1 {
-  font-size: 2.25rem;
-  margin-bottom: 8px;
-}
+/* Filters */
+.filter-bar { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; }
+.filter-group { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.filter-group label { font-size: 0.85rem; font-weight: 600; color: var(--muted); }
+.filter-group select { padding: 8px 10px; border: 1px solid var(--lilac); border-radius: 10px; background: var(--white); }
+.status-btn { padding: 8px 14px; border-radius: 999px; border: 1px solid var(--lilac); background: var(--white); color: var(--graphite); }
+.status-btn.active { background: var(--accent); border-color: var(--accent); font-weight: 600; }
 
-.app-header p {
-  margin: 0;
-  color: var(--muted);
-}
+/* Skill list */
+.skill-list { display: flex; flex-direction: column; gap: 12px; list-style: none; margin: 0; padding: 0; }
+.skill-card { background: var(--white); border: 1px solid var(--lilac); border-radius: 14px; padding: 18px 20px; }
+.skill-card.completed { background: var(--lavender); }
+.skill-card-top { display: flex; justify-content: space-between; gap: 12px; }
+.skill-card h3 { font-size: 1.2rem; }
+.skill-goal { margin: 4px 0 0; color: var(--muted); font-size: 0.95rem; }
+.category-tag { font-size: 0.8rem; font-weight: 600; padding: 4px 10px; border-radius: 999px; background: var(--lavender); border: 1px solid var(--lilac); }
+.progress-row { display: flex; align-items: center; gap: 12px; margin-top: 16px; }
+.progress-track { flex: 1; height: 10px; border-radius: 999px; background: var(--accent-soft); overflow: hidden; }
+.progress-fill { height: 100%; background: var(--accent); }
+.progress-text { font-size: 0.9rem; font-weight: 600; min-width: 42px; text-align: right; }
+.skill-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.skill-actions .spacer { flex: 1; }
+.completed-badge { font-size: 0.85rem; font-weight: 600; color: var(--accent); align-self: center; }
 
-.card {
-  background-color: var(--white);
-  border: 1px solid var(--lilac);
-  border-radius: 14px;
-  padding: 20px;
-  margin-bottom: 16px;
-}
-
-.section-title {
-  font-size: 1.25rem;
-  margin-bottom: 16px;
-}
-
-/* ---------- Stats bar ---------- */
-
-.stats-bar {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  margin-bottom: 16px;
-}
-
-.stat {
-  background-color: var(--white);
-  border: 1px solid var(--lilac);
-  border-radius: 14px;
-  padding: 16px 12px;
-  text-align: center;
-}
-
-.stat-value {
-  display: block;
-  font-family: 'Fraunces', Georgia, serif;
-  font-size: 1.75rem;
-  font-weight: 600;
-}
-
-.stat-label {
-  font-size: 0.85rem;
-  color: var(--muted);
-}
-
-/* ---------- Add-skill form ---------- */
-
-.skill-form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.form-row {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.form-field {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  flex: 1;
-  min-width: 160px;
-}
-
-.form-field label {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--muted);
-}
-
-.form-field input,
-.form-field select {
-  padding: 10px 12px;
-  border: 1px solid var(--lilac);
-  border-radius: 10px;
-  background-color: var(--white);
-}
-
-.form-field input:focus,
-.form-field select:focus {
-  outline: 2px solid var(--accent);
-  outline-offset: 1px;
-}
-
-.form-error {
-  margin: 0;
-  font-size: 0.9rem;
-  color: #9c3d2e;
-}
-
-/* ---------- Buttons ---------- */
-
-.btn {
-  padding: 10px 18px;
-  border-radius: 10px;
-  border: 1px solid var(--lilac);
-  background-color: var(--white);
-  color: var(--graphite);
-}
-
-.btn:hover {
-  background-color: var(--lavender);
-}
-
-.btn-primary {
-  background-color: var(--accent);
-  border-color: var(--accent);
-  color: var(--graphite);
-  font-weight: 600;
-  align-self: flex-start;
-}
-
-.btn-primary:hover {
-  background-color: #7b937f;
-}
-
-.btn-small {
-  padding: 6px 12px;
-  font-size: 0.85rem;
-}
-
-.btn-danger {
-  color: #9c3d2e;
-}
-
-.btn-danger:hover {
-  background-color: #f6e8e4;
-}
-
-/* ---------- Filter bar ---------- */
-
-.filter-bar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.filter-group {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.filter-group label {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--muted);
-}
-
-.filter-group select {
-  padding: 8px 10px;
-  border: 1px solid var(--lilac);
-  border-radius: 10px;
-  background-color: var(--white);
-}
-
-.status-btn {
-  padding: 8px 14px;
-  border-radius: 999px;
-  border: 1px solid var(--lilac);
-  background-color: var(--white);
-  color: var(--graphite);
-}
-
-.status-btn.active {
-  background-color: var(--accent);
-  border-color: var(--accent);
-  font-weight: 600;
-}
-
-/* ---------- Skill list and cards ---------- */
-
-.skill-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.skill-card {
-  background-color: var(--white);
-  border: 1px solid var(--lilac);
-  border-radius: 14px;
-  padding: 18px 20px;
-}
-
-.skill-card.completed {
-  background-color: var(--lavender);
-}
-
-.skill-card-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 12px;
-}
-
-.skill-card h3 {
-  font-size: 1.2rem;
-}
-
-.skill-goal {
-  margin: 4px 0 0;
-  color: var(--muted);
-  font-size: 0.95rem;
-}
-
-.category-tag {
-  flex-shrink: 0;
-  font-size: 0.8rem;
-  font-weight: 600;
-  padding: 4px 10px;
-  border-radius: 999px;
-  background-color: var(--lavender);
-  border: 1px solid var(--lilac);
-}
-
-.progress-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-top: 16px;
-}
-
-.progress-track {
-  flex: 1;
-  height: 10px;
-  border-radius: 999px;
-  background-color: var(--accent-soft);
-  overflow: hidden;
-}
-
-.progress-fill {
-  height: 100%;
-  border-radius: 999px;
-  background-color: var(--accent);
-}
-
-.progress-text {
-  font-size: 0.9rem;
-  font-weight: 600;
-  min-width: 42px;
-  text-align: right;
-}
-
-.skill-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 14px;
-}
-
-.skill-actions .spacer {
-  flex: 1;
-}
-
-.completed-badge {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--accent);
-  align-self: center;
-}
-
-/* ---------- Empty state and footer ---------- */
-
-.empty-message {
-  text-align: center;
-  color: var(--muted);
-  background-color: var(--white);
-  border: 1px dashed var(--lilac);
-  border-radius: 14px;
-  padding: 32px 20px;
-}
-
-.app-footer {
-  text-align: center;
-  color: var(--muted);
-  font-size: 0.85rem;
-  margin-top: 24px;
-}
-
-/* ---------- Small screens ---------- */
+.empty-message { text-align: center; color: var(--muted); background: var(--white); border: 1px dashed var(--lilac); border-radius: 14px; padding: 32px 20px; }
+.app-footer { text-align: center; color: var(--muted); font-size: 0.85rem; margin-top: 24px; }
 
 @media (max-width: 520px) {
-  .app-header h1 {
-    font-size: 1.75rem;
-  }
-
-  .stats-bar {
-    grid-template-columns: 1fr;
-  }
-
-  .stat {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: left;
-    padding: 12px 16px;
-  }
+  .app-header h1 { font-size: 1.75rem; }
+  .stats-bar { grid-template-columns: 1fr; }
 }
